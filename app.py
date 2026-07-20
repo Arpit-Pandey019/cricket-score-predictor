@@ -4,13 +4,17 @@ import os
 
 app = Flask(__name__)
 
-# Load model from /tmp directory
-model_path = "/tmp/model/cricket_score_model.pkl"
-if not os.path.exists(model_path):
-    # Fallback to local model if /tmp doesn't have it
-    model_path = "model/cricket_score_model.pkl"
+# Load model from project folder
+model_path = "model/cricket_score_model.pkl"
 
-model = joblib.load(model_path)
+if os.path.exists(model_path):
+    model = joblib.load(model_path)
+    print("✅ Model loaded successfully!")
+else:
+    print(f"❌ Model file not found at: {model_path}")
+    print("Current directory:", os.getcwd())
+    print("Files in root:", os.listdir('.'))
+    raise FileNotFoundError(f"Model not found at {model_path}")
 
 @app.route("/")
 def home():
