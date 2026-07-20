@@ -63,8 +63,8 @@ pipeline = Pipeline([
 
 pipeline.fit(X, y)
 
-# Save to /tmp directory (persists across build and runtime)
-os.makedirs("/tmp/model", exist_ok=True)
-joblib.dump(pipeline, "/tmp/model/cricket_score_model.pkl")
+# Save to model folder in the project root (not /tmp)
+os.makedirs("model", exist_ok=True)
+joblib.dump(pipeline, "model/cricket_score_model.pkl")
 
-print("Model trained and saved to /tmp/model/cricket_score_model.pkl")
+print("✅ Model trained and saved to model/cricket_score_model.pkl")
