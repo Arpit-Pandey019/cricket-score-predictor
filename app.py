@@ -1,3 +1,4 @@
+import pandas as pd
 from flask import Flask, render_template, request
 import joblib
 import os
@@ -30,7 +31,8 @@ def predict():
     last5 = int(request.form["last5"])
     wickets5 = int(request.form["wickets5"])
 
-    prediction = model.predict([[
+    # Create a DataFrame with the input data
+    input_data = pd.DataFrame([[
         batting,
         bowling,
         current_score,
@@ -38,8 +40,18 @@ def predict():
         wickets,
         last5,
         wickets5
-    ]])
+    ]], columns=[
+        "BattingTeam",
+        "BowlingTeam",
+        "CurrentScore",
+        "Overs",
+        "Wickets",
+        "RunsLast5",
+        "WicketsLast5"
+    ])
 
+    # Make prediction using the DataFrame
+    prediction = model.predict(input_data)
     final_score = round(prediction[0])
 
     return render_template(
