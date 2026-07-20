@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Score Predictor</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🏏 Cricket Score Predictor</h1>
+    <p class="subtitle">Predict the final score of a T20 innings using Machine Learning</p>
+
+    <form action="/predict" method="POST">
+
+        <label>Batting Team</label>
+        <select name="batting">
+            <option>India</option>
+            <option>Australia</option>
+            <option>England</option>
+            <option>Pakistan</option>
+            <option>South Africa</option>
+            <option>New Zealand</option>
+            <option>Sri Lanka</option>
+            <option>West Indies</option>
+        </select>
+
+        <label>Bowling Team</label>
+        <select name="bowling">
+            <option>India</option>
+            <option>Australia</option>
+            <option>England</option>
+            <option>Pakistan</option>
+            <option>South Africa</option>
+            <option>New Zealand</option>
+            <option>Sri Lanka</option>
+            <option>West Indies</option>
+        </select>
+
+        <label>Current Score</label>
+        <input type="number" name="score" required>
+
+        <label>Overs Completed</label>
+        <input type="number" step="0.1" name="overs" required>
+
+        <label>Wickets Lost</label>
+        <input type="number" name="wickets" required>
+
+        <label>Runs in Last 5 Overs</label>
+        <input type="number" name="last5" required>
+
+        <label>Wickets in Last 5 Overs</label>
+        <input type="number" name="wickets5" required>
+
+        <button type="submit">Predict Score</button>
+
+    </form>
+
+    {% if prediction %}
+    <div class="result">
+        🏆 Predicted Final Score
+        <br><br>
+        {{ prediction }}
+    </div>
+    {% endif %}
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
