@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: cricket-score-predictor
+    runtime: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python train_model.py
+    startCommand: gunicorn app:app
