@@ -1,7 +1,6 @@
 import os
 import pandas as pd
 import joblib
-
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
@@ -63,7 +62,9 @@ pipeline = Pipeline([
 ])
 
 pipeline.fit(X, y)
-os.makedirs("model", exist_ok=True)
-joblib.dump(pipeline, "model/cricket_score_model.pkl")
 
-print("Model trained successfully.")
+# Save to /tmp directory (persists across build and runtime)
+os.makedirs("/tmp/model", exist_ok=True)
+joblib.dump(pipeline, "/tmp/model/cricket_score_model.pkl")
+
+print("Model trained and saved to /tmp/model/cricket_score_model.pkl")
