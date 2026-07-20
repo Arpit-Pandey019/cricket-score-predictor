@@ -1,8 +1,18 @@
+import os
 from flask import Flask, render_template, request
 import joblib
 
+# DEBUG: Check if model exists
+print("Current working directory:", os.getcwd())
+print("Files in root:", os.listdir('.'))
+if os.path.exists('model'):
+    print("Files in model folder:", os.listdir('model'))
+else:
+    print("The 'model' folder does NOT exist in the root directory.")
+
 app = Flask(__name__)
 
+# Load model
 model = joblib.load("model/cricket_score_model.pkl")
 
 @app.route("/")
@@ -11,19 +21,12 @@ def home():
 
 @app.route("/predict", methods=["POST"])
 def predict():
-
     batting = request.form["batting"]
-
     bowling = request.form["bowling"]
-
     current_score = int(request.form["score"])
-
     overs = float(request.form["overs"])
-
     wickets = int(request.form["wickets"])
-
     last5 = int(request.form["last5"])
-
     wickets5 = int(request.form["wickets5"])
 
     prediction = model.predict([[
