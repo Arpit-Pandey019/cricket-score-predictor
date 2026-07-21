@@ -8,7 +8,7 @@ A Machine Learning web application that predicts the projected final score of a 
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 This project predicts the expected final innings score using a trained Machine Learning model.
 
