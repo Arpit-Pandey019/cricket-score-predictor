@@ -37,7 +37,7 @@ The application provides an estimated final score instantly after the user enter
 
 ---
 
-## 🧠 Machine Learning Workflow
+##  Machine Learning Workflow
 
 1. Data Collection
 2. Data Cleaning
@@ -51,7 +51,7 @@ The application provides an estimated final score instantly after the user enter
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Programming Language
 
@@ -79,7 +79,7 @@ The application provides an estimated final score instantly after the user enter
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 Cricket-Score-Predictor/
@@ -122,7 +122,7 @@ Cricket-Score-Predictor/
 
 ---
 
-## 🎯 Output
+##  Output
 
 The model predicts the projected final innings score.
 
