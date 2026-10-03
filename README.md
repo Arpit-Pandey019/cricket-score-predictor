@@ -4,7 +4,7 @@ A Machine Learning web application that predicts the projected final score of a 
 
 ## 🌐 Live Demo
 
-**Live Application:** https://cricket-score-predictor-2.onrender.com
+**Live Application:** https://cricket-score-predictor-1-wn63.onrender.com
 
 ---
 
